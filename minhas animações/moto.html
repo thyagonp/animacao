@@ -1,0 +1,108 @@
+<html>
+	<head>
+		<script>
+			// Estou no JavaScript
+			function Iniciar()
+			{
+				// estou dentro da função Iniciar()
+				// alert("Estou na função Iniciar()")
+				document.getElementById("musica").play()
+				
+				document.getElementById("moto").className="moto"
+				
+				document.getElementById("b1").className="escondida"
+			}
+		</script>
+		<title>Motoca</title>
+	<style>
+		body {
+				background-color:lightblue;
+			}
+		.escondida {
+				position:relative;
+				left:-2000px;
+				top:-2000px;
+			}
+		
+		#ambiente {
+			width:900px;
+			height:455px;
+			background:url(imgs/cidade3.png);
+			background-blend-mode:normal;
+			border:2px solid navy;
+			animation-name: mudaFundo;
+			animation-duration: 20s;
+			animation-fill-mode: forwards;
+			overflow:hidden;
+			}
+		
+		#moto{
+			position:relative;
+			top:420px;
+			left: -290px;
+			animation-name: corrida;
+			animation-duration: 40s;
+			animation-fill-mode: forwards;
+		} 
+		
+		@keyframes corrida {
+			
+			from {left: -30px;}
+			
+			
+			50% {
+			transform: rotate(-50deg) ;
+			}
+
+			65% {
+			transform: rotate(deg);
+			}
+
+			70%{
+			transform: rotate(20deg);
+			}
+			
+			80%{
+			transform: rotate(20deg);
+			}
+			
+			
+			95%{
+			transform: rotate(0deg);
+			}
+			
+			
+			to {left: 100%;}
+			 }
+		
+		@keyframes mudaFundo {
+			
+			 from {
+				background-position: 1000px 0px;
+				background-color:lightblue;
+				background-image:url(imgs/cidade4.png);}
+				
+			  to {
+				background-position: 0px 0px;
+				background-color:black;
+				background-image:url(imgs/cidade4.png),url(imgs/ceu3.jpg);}
+			}
+		
+	</style>
+	</head>
+	
+	<body>
+		<div id="ambiente">
+			<img class="escondida" id="moto" width="30px;" src="imgs/moto.png">
+			
+			<input id="b1" type="button" value="Iniciar" onclick="Iniciar()">
+			
+			<audio id="musica">
+				<source src="audio/moto.wav" type="audio/wav">
+				<source src="audio/moto.ogg" type="audio/ogg">
+				<source src="audio/moto.mp3" type="audio/mpeg">
+				Áudio não suportado
+			</audio>
+		</div>
+	</body>
+</html>
